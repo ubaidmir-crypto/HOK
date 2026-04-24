@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Hair of Kashmir — Clinic Webapp
 
 An aesthetic clinic webapp for **Hair of Kashmir** (Dr. Mir Waleed Mansoor, Srinagar). Built with React + Vite, backed by Supabase.
@@ -59,3 +60,7 @@ Row-Level Security is enabled with public read for catalog data and public inser
 ## License
 
 Private. © Hair of Kashmir.
+=======
+# HOK
+waleed's laser clinic 
+>>>>>>> bf32915a091d4a3c4226e833536279b1716c2056
