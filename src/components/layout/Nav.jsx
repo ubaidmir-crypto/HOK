@@ -1,9 +1,11 @@
+import { CLINIC } from '../../lib/constants';
 import Icon from '../ui/Icon';
 
 const LINKS = [
   ['home', 'Home'],
   ['treatments', 'Treatments'],
   ['products', 'Shop'],
+  ['stories', 'Stories'],
   ['book', 'Book'],
   ['ask', 'Ask'],
   ['about', 'About'],
@@ -14,11 +16,10 @@ export default function Nav({ route, go, cartCount, openCart }) {
   return (
     <nav className="nav">
       <div className="container nav-inner">
-        <button className="brand" onClick={() => go('home')}>
+        <div className="brand" onClick={() => go('home')} style={{ cursor: 'pointer' }}>
           <span className="brand-mark">Hair of Kashmir</span>
-          <span className="brand-sub">Est. Srinagar</span>
-        </button>
-
+          <span className="brand-sub">Srinagar</span>
+        </div>
         <div className="nav-links">
           {LINKS.map(([key, label]) => (
             <button
@@ -30,11 +31,11 @@ export default function Nav({ route, go, cartCount, openCart }) {
             </button>
           ))}
         </div>
-
         <div className="nav-actions">
+          <a className="admin-link" href="#admin">Admin</a>
           <button className="cart-btn" onClick={openCart}>
-            <Icon name="cart" size={14} /> Cart
-            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+            <Icon name="cart" size={14} />
+            Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </button>
         </div>
       </div>

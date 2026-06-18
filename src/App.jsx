@@ -16,6 +16,7 @@ import Booking from './pages/Booking';
 import Ask from './pages/Ask';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Stories from './pages/Stories';
 
 import AdminPanel from './admin/AdminPanel';
 
@@ -47,7 +48,6 @@ export default function App() {
     go('book');
   };
 
-  // Admin is a separate full-screen view
   if (route === 'admin') {
     return (
       <AdminPanel
@@ -63,6 +63,7 @@ export default function App() {
     home: <Home go={go} />,
     treatments: <Treatments onBook={goToBooking} />,
     products: <Products cart={cart} notify={toast.notify} />,
+    stories: <Stories />,
     book: <Booking preselect={preselectTreatment} notify={toast.notify} />,
     ask: <Ask notify={toast.notify} />,
     about: <About />,
