@@ -28,7 +28,6 @@ export default function App() {
   const cart = useCart();
   const toast = useToast();
 
-  // Hash-based admin route
   useEffect(() => {
     const check = () => {
       if (window.location.hash === '#admin') setRoute('admin');
@@ -50,12 +49,16 @@ export default function App() {
 
   if (route === 'admin') {
     return (
-      <AdminPanel
-        onExit={() => {
-          window.location.hash = '';
-          setRoute('home');
-        }}
-      />
+      <>
+        <AdminPanel
+          notify={toast.notify}
+          onExit={() => {
+            window.location.hash = '';
+            setRoute('home');
+          }}
+        />
+        <Toast toast={toast.current} />
+      </>
     );
   }
 

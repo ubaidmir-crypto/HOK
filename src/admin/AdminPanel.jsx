@@ -5,17 +5,23 @@ import AdminAppointments from './AdminAppointments';
 import AdminOrders from './AdminOrders';
 import AdminQuestions from './AdminQuestions';
 import AdminList from './AdminList';
+import AdminBlog from './AdminBlog';
+import AdminGallery from './AdminGallery';
+import AdminVideos from './AdminVideos';
 
 const TABS = [
   ['overview', AdminOverview],
   ['appointments', AdminAppointments],
   ['orders', AdminOrders],
   ['questions', AdminQuestions],
+  ['blog', ({ notify }) => <AdminBlog notify={notify} />],
+  ['gallery', ({ notify }) => <AdminGallery notify={notify} />],
+  ['videos', ({ notify }) => <AdminVideos notify={notify} />],
   ['treatments', () => <AdminList type="treatment" />],
   ['products', () => <AdminList type="product" />],
 ];
 
-export default function AdminPanel({ onExit }) {
+export default function AdminPanel({ onExit, notify }) {
   const [authed, setAuthed] = useState(sessionStorage.getItem('hok_admin') === 'ok');
   const [tab, setTab] = useState('overview');
 
@@ -68,7 +74,7 @@ export default function AdminPanel({ onExit }) {
           ))}
         </div>
 
-        {ActiveTab && <ActiveTab />}
+        {ActiveTab && <ActiveTab notify={notify} />}
       </div>
     </div>
   );
