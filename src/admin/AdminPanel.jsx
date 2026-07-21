@@ -4,21 +4,22 @@ import AdminOverview from './AdminOverview';
 import AdminAppointments from './AdminAppointments';
 import AdminOrders from './AdminOrders';
 import AdminQuestions from './AdminQuestions';
-import AdminList from './AdminList';
 import AdminBlog from './AdminBlog';
 import AdminGallery from './AdminGallery';
 import AdminVideos from './AdminVideos';
+import AdminProducts from './AdminProducts';
+import AdminTreatments from './AdminTreatments';
 
 const TABS = [
   ['overview', AdminOverview],
   ['appointments', AdminAppointments],
   ['orders', AdminOrders],
-  ['questions', AdminQuestions],
+  ['questions', ({ notify }) => <AdminQuestions notify={notify} />],
   ['blog', ({ notify }) => <AdminBlog notify={notify} />],
   ['gallery', ({ notify }) => <AdminGallery notify={notify} />],
   ['videos', ({ notify }) => <AdminVideos notify={notify} />],
-  ['treatments', () => <AdminList type="treatment" />],
-  ['products', () => <AdminList type="product" />],
+  ['treatments', ({ notify }) => <AdminTreatments notify={notify} />],
+  ['products', ({ notify }) => <AdminProducts notify={notify} />],
 ];
 
 export default function AdminPanel({ onExit, notify }) {
