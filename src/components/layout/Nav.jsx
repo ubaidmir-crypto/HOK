@@ -32,7 +32,6 @@ export default function Nav({ route, go, cartCount, openCart }) {
           ))}
         </div>
         <div className="nav-actions">
-          <a className="admin-link" href="#admin">Admin</a>
           <button className="cart-btn" onClick={openCart}>
             <Icon name="cart" size={14} />
             Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
